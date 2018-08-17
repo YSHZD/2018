@@ -1,0 +1,252 @@
+  var Iterator = function(obj){
+  	var current = 0;
+  	var next = function(){
+  		current ++;
+  	};
+  	var isDone = function(){
+  		return current >= obj.length;
+  	};
+  	var getCurrentItem = function(){
+  		return obj[current]
+  	}
+  	return {
+  		next:next,
+  		isDone:isDone,
+  		getCurrentItem:getCurrentItem
+  	}
+  };
+  var compare = function(Iterator1,Iterator2){
+  	var bool = true;
+  	while(!Iterator1.isDone() || !Iterator2.isDone()){
+  		if(Iterator1.getCurrentItem()!=Iterator2.getCurrentItem()){
+  			alert('xxx');
+  			bool = false;
+  			return bool;
+  		}
+  		Iterator1.next();
+  		Iterator2.next();
+  	}
+  	if(bool){
+  		alert('yes')
+  	}
+  }
+ //compare(Iterator([1,3,1]),Iterator([1,3,1]))
+ function random(min,max){
+ 	if(max==null){
+ 		max = min;
+ 		min = 0;
+ 	}
+ 	console.log(min+Math.floor(Math.random()*(max-min+1)))
+ }
+ random(5);
+ //创建ajax 对象
+ var xhr = null;
+ if(window.XMLHttpRequest){
+ 	xhr = new XMLHttpRequest();
+ }else{
+ 	xhr = new ActiveXObject('Microsoft.XMLHTTP')
+ }
+ // 连接服务器
+ xhr.open('GET',URL,true);
+ //发送请求
+ xhr.send();
+ 
+ post
+ xhr.open('post',url,true)
+ xhr.setRequestHeader("content-type",'application/x-www-form-urlencode')
+ xhr.send(data)
+ 
+ //接受返回数据
+ xhr.onreadystatechange = function(){
+ 	if(xhr.readyState == 4){
+ 		if(xhr.status == 200){
+
+ 		}
+ 	}
+ }
+
+// ajax 对象
+var xhr = null;
+if(window.XMLHttpRequest){
+	xhr = new XMLHttpRequest();
+}else{
+	xhr = new ActiveXObject('Microsoft.XMLHTTP')
+};
+//连接服务
+xhr.open('GET',url,true);
+//发出请求
+xhr.send()
+//获取返回数据
+/*
+Microsoft.XMLHTTP
+请求未初始化
+服务器连接已建立
+请求已接受
+请求处理中
+请求已完全 且响应已就绪
+
+请求未初始化
+服务器连接已建立
+请求已接受
+请求处理中
+请求已完成 且响应已就绪
+
+
+请求未初始化
+服务连接已建立
+请求已接受
+请求处理中
+请求已完成 且响应已就绪
+
+*/
+xhr.onreadystatechange = function(){
+	if(xhr.readyState == 4){
+		if(xhr.status==200){
+
+		}
+	}
+}
+//post 请求
+xhr.open('POST',url,true);
+xhr.setRequestHeader('content-type','application/x-www-form-urlencode')
+xhr.send(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//创建ajax对象
+var xhr = null;
+if(window.XMLHttpRequest){
+	xhr = new XMLHttpRequest()
+}else{
+	xhr = new ActiveXObject('Miscrosoft.XMLHTTP')
+}
+//连接服务
+xhr.open('GET',url,true)
+//发送请求
+xhr.send()
+//获取返回数据
+xhr.onreadystatechange = function(){
+	//请求未初始化 服务连接已建立 请求已接受  请求处理中 请求已完成 响应已就绪
+
+
+
+
+
+	if(xhr.readyState==4){
+		if(xhr.status == 200){
+
+		}
+	}
+}
+//post
+xhr.open('POST',url,true);
+xhr.seRequestHeader('Content-type','application/x-www-form-urlenencode')
+xhr.send(data)
+
+
+function Logs(){
+  var temp = null;
+  var datas = [];
+  Object.defineProperty(this,'temp',{
+    get:function(){
+      console.log(temp);
+      return temp;
+    },
+    set:function(val){
+      temp = val;
+      datas.push({val:val})
+    }
+  });
+  this.getdatas = function(){
+    return datas;
+  }
+}
+var log = new Logs();
+log.temp;
+log.temp = 1;
+log.temp;
+log.temp = 2;
+log.temp;
+log.temp = 3;
+log.getdatas()
+
+1.cookie 在浏览器和服务器来回传递数据
+localstorage sessionstorage 不会自动把数据发送给服务器仅保存本地
+cookie会在浏览器请求头或者ajax请求头中发送cookie内容
+2.cookie 可以设置过期日期  sessionstorage浏览关闭即清除
+localstorage 除非手动清除或者永久存在
+3.cookie 的存储大小受限制，一般不超过4k,而localstorage,sessionstorage一般不超过5M
+4.sessionStorage 不跨窗口,而loacalStorage,cookie跨窗口，即使浏览器关闭还存在
+
+使用场景：
+localStorage 可以用来统计页面访问次数
+sessionStorage 可以用来统计当前页面元素的点击次数
+cookie 一般存储用户名密码相关信息，一般用escape转义后存储
+
+一个完整的前端工程体系：
+
+开发规范
+组件化开发
+构建流程
+
+
+html5新特性
+
+canvas
+video
+audio
+article
+footer
+header
+nav
+section
+date
+time
+email
+URL
+search
+calender
+drap drop
+地理位置
+localStorage
+sessionStorage
+
+数据类型
+Object
+number
+string
+boolean
+undefined
+null
+
+父子组件 prop $emit
+
+new vue
+
+$attrs $listeners
+
+vuex
+
+1. new vue 执行初始化
+2. 挂载$mount方法 通过自定义render方法、template、el等生产render函数
+3.通过watcher 监听数据变化
+4.数据变化时 render函数执行生产vnode对象
+5.通过patch方法，对比新旧vnode对象 通过dom diff算法，添加 修改 删除真正的dom元素
+
+
+router.beforeEach
+路由 视图 请求
